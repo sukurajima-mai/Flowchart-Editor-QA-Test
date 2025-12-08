@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(diagramscene LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Test)
 
 qt_standard_project_setup()
 
@@ -66,3 +66,26 @@ qt_generate_deploy_app_script(
     NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})
+
+# Enable testing
+enable_testing()
+
+# Add test executable
+qt_add_executable(test_diagramscene
+    arrow.cpp arrow.h
+    diagramitem.cpp diagramitem.h
+    diagramscene.cpp diagramscene.h
+    diagramtextitem.cpp diagramtextitem.h
+    diagrampath.cpp diagrampath.h
+    tests/test_diagramscene.cpp
+)
+
+target_link_libraries(test_diagramscene PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::Test
+)
+
+# Register test with CTest
+add_test(NAME DiagramSceneTest COMMAND test_diagramscene)

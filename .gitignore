@@ -2,7 +2,7 @@
 *.pro.user
 *.pro.user.*
 *.qmake.stash
-build-*/
+build/
 *.autosave
 
 # --- C++ Compiled files ---
