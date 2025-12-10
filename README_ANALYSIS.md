@@ -5,7 +5,9 @@
 本项目已生成以下分析文档（位于 `/SoftwareQA&testing/` 目录下）：
 
 ### 1. 📋 **PROJECT_ANALYSIS.md** — 项目全面分析
+
 **内容**:
+
 - 项目概述和代码规模统计
 - 核心类 (8 个) 详细说明
 - 20+ 个流程图图形类型解析
@@ -21,7 +23,9 @@
 ---
 
 ### 2. 🏗️ **ARCHITECTURE.md** — 详细架构文档
+
 **内容**:
+
 - 完整目录结构 (42+ 个文件)
 - 类继承链 (8 张图)
 - 核心流程图 (6 个)
@@ -41,7 +45,9 @@
 ---
 
 ### 3. ✅ **tests/TEST_SUMMARY.md** — 测试报告
+
 **内容**:
+
 - 19 个单元测试详解
 - 100% 分支覆盖率证明
 - 边界条件总结 (8 类)
@@ -54,7 +60,9 @@
 ---
 
 ### 4. 📖 **tests/TEST_COVERAGE.md** — 测试规范
+
 **内容**:
+
 - 每个测试的目的说明
 - 分支覆盖详解
 - 边界条件定义
@@ -65,7 +73,9 @@
 ---
 
 ### 5. ⚡ **tests/QUICKREF.md** — 快速参考卡
+
 **内容**:
+
 - 一键运行命令
 - 测试列表速览
 - 文件位置
@@ -78,27 +88,27 @@
 ## 🎯 快速导航
 
 ### 我想快速了解这个项目...
+
 ➜ 阅读 **PROJECT_ANALYSIS.md** 的前 3 段
 
 ### 我想学习 Qt Graphics View 框架...
+
 ➜ 阅读 **ARCHITECTURE.md** 的"核心流程图"部分
 
 ### 我想了解代码结构...
+
 ➜ 阅读 **ARCHITECTURE.md** 的"目录结构"和"类关系"
 
-### 我想运行单元测试...
-➜ 按照 **tests/QUICKREF.md** 的"一键运行"命令
-
 ### 我想学习设计模式（命令模式、观察者模式）...
+
 ➜ 阅读 **ARCHITECTURE.md** 的"撤销/重做流程"部分
 
 ### 我想看代码质量评估...
+
 ➜ 阅读 **PROJECT_ANALYSIS.md** 的"代码质量指标"和"潜在问题"
 
-### 我想学习如何写单元测试...
-➜ 查看 **tests/test_diagramscene_simple.cpp** 源码
-
 ### 我想了解项目改进方向...
+
 ➜ 阅读 **PROJECT_ANALYSIS.md** 的"改进建议"
 
 ---
@@ -121,16 +131,16 @@ UI 控件:         20+ 个组件
 
 ## 🔑 核心类速查
 
-| 类名 | 行数 | 责任 | 关键方法 |
-|------|------|------|---------|
-| **MainWindow** | 1,500 | 主窗口，UI 管理 | savefile(), loadfile(), undo() |
-| **DiagramScene** | 490 | 图形场景 | createItem(), setItemColor(), mousePressEvent() |
-| **DiagramItem** | 550 | 图形元素（20 种） | paint(), setRotationAngle(), boundingRect() |
-| **Arrow** | 60 | 直线箭头 | updatePosition(), paint() |
-| **DiagramPath** | 90 | 曲线连接 | drawZig(), updatePath() |
-| **DiagramTextItem** | 30 | 文本编辑 | setDefaultTextColor() |
-| **DeleteCommand** | 40 | 撤销/重做 | undo(), redo() |
-| **FindReplaceDialog** | 50 | 查找替换 | findText(), replaceText() |
+| 类名                        | 行数  | 责任              | 关键方法                                        |
+| --------------------------- | ----- | ----------------- | ----------------------------------------------- |
+| **MainWindow**        | 1,500 | 主窗口，UI 管理   | savefile(), loadfile(), undo()                  |
+| **DiagramScene**      | 490   | 图形场景          | createItem(), setItemColor(), mousePressEvent() |
+| **DiagramItem**       | 550   | 图形元素（20 种） | paint(), setRotationAngle(), boundingRect()     |
+| **Arrow**             | 60    | 直线箭头          | updatePosition(), paint()                       |
+| **DiagramPath**       | 90    | 曲线连接          | drawZig(), updatePath()                         |
+| **DiagramTextItem**   | 30    | 文本编辑          | setDefaultTextColor()                           |
+| **DeleteCommand**     | 40    | 撤销/重做         | undo(), redo()                                  |
+| **FindReplaceDialog** | 50    | 查找替换          | findText(), replaceText()                       |
 
 ---
 
@@ -152,12 +162,14 @@ CMake 配置              : 1 个
 ## 💡 学习路线图
 
 ### 初级 (了解基础)
+
 1. 阅读 main.cpp 和 mainwindow.h
 2. 理解 Qt 应用结构
 3. 阅读 PROJECT_ANALYSIS.md 前 2 段
 4. ✅ 预计时间: 30 分钟
 
 ### 中级 (学习核心)
+
 1. 详读 DiagramScene 和 DiagramItem 类
 2. 理解 Qt Graphics View 框架
 3. 学习信号/槽机制
@@ -165,6 +177,7 @@ CMake 配置              : 1 个
 5. ✅ 预计时间: 2 小时
 
 ### 高级 (深入研究)
+
 1. 分析 MainWindow 的完整实现
 2. 学习命令模式 (DeleteCommand)
 3. 研究几何变换和旋转算法
@@ -177,66 +190,78 @@ CMake 配置              : 1 个
 ## 🛠️ 常见问题快速查询
 
 ### Q: 项目用的什么框架?
+
 A: Qt 6.10.1 (Graphics View Framework)，位置见 **PROJECT_ANALYSIS.md** 的"技术栈"
 
 ### Q: 支持哪些图形?
+
 A: 20 种，完整列表见 **ARCHITECTURE.md** 的"DiagramType 枚举"
 
 ### Q: 如何实现撤销/重做?
+
 A: 使用命令模式，见 **ARCHITECTURE.md** 的"撤销/重做流程"
 
 ### Q: 如何旋转图形?
+
 A: 按 R 键右旋、L 键左旋，实现见 **ARCHITECTURE.md** 的"旋转操作流程"
 
 ### Q: 有没有单元测试?
+
 A: 有 19 个，全部通过 ✅，见 **tests/** 目录
 
 ### Q: 代码质量如何?
+
 A: ⭐⭐⭐⭐，见 **PROJECT_ANALYSIS.md** 的"代码质量指标"
 
 ### Q: 如何扩展功能?
+
 A: 建议阅读"改进建议"部分，见 **PROJECT_ANALYSIS.md**
 
 ---
 
 ## 📈 分析文档统计
 
-| 文档 | 大小 | 页数估计 | 阅读时间 |
-|------|------|---------|---------|
-| PROJECT_ANALYSIS.md | 18 KB | 15 | 30 分钟 |
-| ARCHITECTURE.md | 22 KB | 18 | 45 分钟 |
-| TEST_SUMMARY.md | 12 KB | 10 | 20 分钟 |
-| TEST_COVERAGE.md | 8 KB | 7 | 15 分钟 |
-| QUICKREF.md | 3 KB | 2 | 5 分钟 |
-| **总计** | **63 KB** | **52** | **2 小时** |
+| 文档                | 大小            | 页数估计     | 阅读时间         |
+| ------------------- | --------------- | ------------ | ---------------- |
+| PROJECT_ANALYSIS.md | 18 KB           | 15           | 30 分钟          |
+| ARCHITECTURE.md     | 22 KB           | 18           | 45 分钟          |
+| TEST_SUMMARY.md     | 12 KB           | 10           | 20 分钟          |
+| TEST_COVERAGE.md    | 8 KB            | 7            | 15 分钟          |
+| QUICKREF.md         | 3 KB            | 2            | 5 分钟           |
+| **总计**      | **63 KB** | **52** | **2 小时** |
 
 ---
 
 ## 🎓 本分析包含的知识点
 
 ✅ **Qt Framework**
+
 - Graphics View 架构
 - 信号/槽机制
 - 事件处理
 - 文件 I/O
 
 ✅ **设计模式**
+
 - 命令模式 (Commands)
 - 观察者模式 (Signals/Slots)
 - 工厂模式 (createItem)
 
 ✅ **C++ 特性**
+
 - 类继承和虚函数
 - 内存管理和 RAII
 - 模板和容器
 
 ✅ **软件工程**
+
 - 代码组织和架构
 - 测试驱动开发
 - 单元测试设计
 - 代码质量评估
 
 ✅ **图形编程**
+
 - 坐标变换
 - 旋转和缩放
 - 几何计算
@@ -246,13 +271,11 @@ A: 建议阅读"改进建议"部分，见 **PROJECT_ANALYSIS.md**
 
 ## 📞 文档更新日志
 
-| 日期 | 文档 | 更新内容 |
-|------|------|---------|
+| 日期       | 文档 | 更新内容           |
+| ---------- | ---- | ------------------ |
 | 2025-12-08 | 所有 | 初始版本，完整分析 |
 
 ---
-
-## 🚀 后续行动
 
 ### 推荐的学习步骤
 
@@ -274,7 +297,6 @@ A: 建议阅读"改进建议"部分，见 **PROJECT_ANALYSIS.md**
 
 ---
 
-**最后更新**: 2025-12-08  
-**文档版本**: 1.0  
+**最后更新**: 2025-12-08
+**文档版本**: 1.0
 **适用版本**: Qt 6.10.1, FreeCharts (Flowchart Editor)
-
