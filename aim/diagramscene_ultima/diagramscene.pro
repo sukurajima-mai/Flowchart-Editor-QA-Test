@@ -11,7 +11,8 @@ HEADERS	    =   mainwindow.h \
 		diagramscene.h \
 		arrow.h \
 		diagramtextitem.h \
-		findreplacedialog.h
+		findreplacedialog.h \
+		snapshotcommand.h
 SOURCES	    =   mainwindow.cpp \
 		deletecommand.cpp \
 		diagramitem.cpp \
@@ -21,8 +22,10 @@ SOURCES	    =   mainwindow.cpp \
 		main.cpp \
 		arrow.cpp \
 		diagramtextitem.cpp \
-		diagramscene.cpp
-RESOURCES   =	diagramscene.qrc
+		diagramscene.cpp \
+		snapshotcommand.cpp
+RESOURCES   =	diagramscene.qrc \
+    newpic.qrc
 
 
 # install
