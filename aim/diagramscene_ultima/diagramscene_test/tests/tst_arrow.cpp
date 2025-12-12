@@ -94,5 +94,5 @@ void TestArrow::testPaintDoesNotCrash()
     QVERIFY(!pixmap.isNull());
 }
 
-QTEST_MAIN(TestArrow)
+// QTEST_MAIN(TestArrow)
 #include "tst_arrow.moc"

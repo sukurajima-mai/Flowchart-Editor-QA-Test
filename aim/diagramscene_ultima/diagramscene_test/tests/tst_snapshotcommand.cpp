@@ -81,5 +81,5 @@ private:
     QGraphicsView *m_view = nullptr;
 };
 
-// QTEST_MAIN(snapshotcommand)
+QTEST_MAIN(snapshotcommand)
 #include "tst_snapshotcommand.moc"

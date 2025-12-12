@@ -12,7 +12,6 @@ HEADERS	    =   mainwindow.h \
 		arrow.h \
 		diagramtextitem.h \
 		findreplacedialog.h \
-		mygraphicsview.h \
 		snapshotcommand.h
 SOURCES	    =   mainwindow.cpp \
 		deletecommand.cpp \
@@ -24,7 +23,6 @@ SOURCES	    =   mainwindow.cpp \
 		arrow.cpp \
 		diagramtextitem.cpp \
 		diagramscene.cpp \
-		mygraphicsview.cpp \
 		snapshotcommand.cpp
 RESOURCES   =	diagramscene.qrc \
     newpic.qrc
@@ -34,5 +32,4 @@ RESOURCES   =	diagramscene.qrc \
 target.path = $$[QT_INSTALL_EXAMPLES]/widgets/graphicsview/diagramscene
 INSTALLS += target
 
-FORMS += \
-    mygraphicsview.ui
+FORMS +=

@@ -1,13 +1,21 @@
 # Flowchart Editor 单元测试总结报告
 
-测试步骤：
+## 1. 测试工具：
+
+- 使用QT Creator自带的QT Test工具，需调用QTest库。
+
+---
+
+## 2. 测试步骤：
+
 - 用QT Creator打开`diagramscene_test.pro`文件；
 - 选择对应测试文件`tst_*.cpp`，将其倒数第二行的代码`QTEST_MAIN(Test*)`取消注释；
 - 点击下方功能栏 “ 8测试结果 ”，点击运行厕所测试，即可开始测试。
 
 ---
+## 3. 测试内容
 
-## 1. `SnapshotCommand` 测试 (`tst_snapshotcommand.cpp`)
+### 3.1 `SnapshotCommand` 测试 (`tst_snapshotcommand.cpp`)
 
 ### 功能定位
 实现场景快照的撤销/重做命令：`undo()`/`redo()` 清空当前场景并恢复为指定 `QPixmap` 快照。
@@ -21,9 +29,12 @@
 
 > ⚠️ **局限**：快照为静态图像，无法验证像素内容；设计上 `undo`/`redo` 行为相同，不符合典型撤销语义。
 
+### 测试结果
+![](./result/tst_snapshotcommand.png)
+
 ---
 
-## 2. `DiagramTextItem` 测试 (`tst_diagramtextitem.cpp`)
+### 3.2 `DiagramTextItem` 测试 (`tst_diagramtextitem.cpp`)
 
 ### 功能定位
 可编辑文本图元，支持双击编辑、焦点丢失处理及选中状态信号。
@@ -40,9 +51,12 @@
   - 初始文本交互模式可设为 `NoTextInteraction`（为双击编辑做准备）。
   - （注：因 `mouseDoubleClickEvent` 为 protected，未直接触发，仅验证状态合理性）
 
+### 测试结果
+![](./result/tst_diagramtextitem.png)
+
 ---
 
-## 3. `DiagramScene` 测试 (`tst_diagramscene.cpp`)
+### 3.3 `DiagramScene` 测试 (`tst_diagramscene.cpp`)
 
 ### 功能定位
 流程图主场景，管理图元创建、颜色/字体设置、文本项焦点处理及信号发射。
@@ -60,9 +74,12 @@
 
 > 🔧 **关键修复**：使用 `qgraphicsitem_cast` 替代 `qobject_cast`（因 `DiagramItem` 非 `QObject`）。
 
+### 测试结果
+![](./result/tst_diagramscene.png)
+
 ---
 
-## 4. `DiagramPath` 测试 (`tst_diagrampath.cpp`)
+### 3.4 `DiagramPath` 测试 (`tst_diagrampath.cpp`)
 
 ### 功能定位
 连接两个 `DiagramItem` 的路径线，支持多种连接点（`TransformState`）。
@@ -74,9 +91,12 @@
 - ✅ **多状态组合**：遍历多种连接点组合（上下、左右、对角），确保路径生成不崩溃且非空。
 - ✅ **前置条件**：图元必须加入场景（否则 `mapToScene` 崩溃），测试中显式添加。
 
+### 测试结果
+![](./result/tst_diagrampath.png)
+
 ---
 
-## 5. `DiagramItemGroup` 测试 (`tst_diagramitemgroup.cpp`)
+### 3.5 `DiagramItemGroup` 测试 (`tst_diagramitemgroup.cpp`)
 
 ### 功能定位
 图形项分组容器，聚合多个 `QGraphicsItem`。
@@ -86,9 +106,12 @@
 - ✅ **项管理**：`addItem()` 正确将子项加入组（通过 `childItems().size()` 验证）。
 - ✅ **边界矩形计算**：`boundingRect()` 返回值与所加矩形项尺寸一致。
 
+### 测试结果
+![](./result/tst_diagramitemgroup.png)
+
 ---
 
-## 6. `DiagramItem` 测试 (`tst_diagramitem.cpp`)
+### 3.6 `DiagramItem` 测试 (`tst_diagramitem.cpp`)
 
 ### 功能定位
 流程图基础图元（步骤、判断、输入输出等），支持自定义形状、颜色、尺寸。
@@ -106,9 +129,12 @@
 
 > ⚠️ **注意**：`setBrush` 接口接受非 const 引用，测试中使用命名变量绕过临时对象限制。
 
+### 测试结果
+![](./result/tst_diagramitem.png)
+
 ---
 
-## 7. `DeleteCommand` 测试 (`tst_deletecommand.cpp`)
+### 3.7 `DeleteCommand` 测试 (`tst_deletecommand.cpp`)
 
 ### 功能定位
 删除图元的撤销命令：`redo()` 移除图元，`undo()` 恢复其位置。
@@ -120,9 +146,12 @@
 - ✅ **状态保持**：位置信息在撤销/重做中正确保存与还原。
 - ⛔ **健壮性**：跳过空指针测试（假设调用者保证参数有效）。
 
+### 测试结果
+![](./result/tst_deletecommand.png)
+
 ---
 
-## 8. `Arrow` 测试 (`tst_arrow.cpp`)
+### 3.8 `Arrow` 测试 (`tst_arrow.cpp`)
 
 ### 功能定位
 连接两个 `DiagramItem` 的箭头，自动计算端点位置并绘制。
@@ -135,9 +164,12 @@
   - 通过 `QGraphicsScene::render()` 触发 `paint()`，验证**不崩溃**。
   - 确保不同图元组合下箭头绘制逻辑兼容。
 
+### 测试结果
+![](./result/tst_arrow.png)
+
 ---
 
-## 总体测试策略与原则
+## 4. 总体测试策略与原则
 
 | 原则 | 实践 |
 |------|------|
